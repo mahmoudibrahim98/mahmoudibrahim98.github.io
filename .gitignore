@@ -1,0 +1,21 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Python virtualenv for the scholar citations script
+.venv/
+__pycache__/
+*.pyc
+get-pip.py
+
+# npm cache
+.npm-cache/
+
+# Claude settings (local only)
+.claude/
+
