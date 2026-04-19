@@ -168,7 +168,7 @@ export default function App() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass">
         <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-          <a href="#home" className="font-serif italic text-2xl font-bold tracking-tight text-slate-900">MI.</a>
+          <a href="#home" className="font-serif text-xl font-bold tracking-tight text-slate-900">Mahmoud Ibrahim</a>
           
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
@@ -219,7 +219,7 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-7xl md:text-9xl font-serif italic mb-8 tracking-tighter text-slate-900">
+              <h1 className="text-7xl md:text-9xl font-serif mb-8 tracking-tighter text-slate-900">
                 {cvData.name}
               </h1>
               <div className="text-2xl md:text-3xl text-slate-500 max-w-2xl font-light leading-relaxed mb-10 h-32 md:h-auto">
