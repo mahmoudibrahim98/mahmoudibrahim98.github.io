@@ -244,6 +244,9 @@ export default function App() {
                 <a href={cvData.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-slate-200 text-sm font-medium hover:border-emerald-500 hover:text-emerald-600 transition-all duration-300 shadow-sm">
                   <Github size={18} /> GitHub
                 </a>
+                <a href={cvData.scholar} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-slate-200 text-sm font-medium hover:border-emerald-500 hover:text-emerald-600 transition-all duration-300 shadow-sm">
+                  <GraduationCap size={18} /> Google Scholar
+                </a>
               </div>
             </motion.div>
 

@@ -87,6 +87,7 @@ export const cvData = {
       journal: "ECML PKDD SynDAiTE Workshop 2025",
       year: "2025",
       link: "https://arxiv.org/abs/2510.19728",
+      site: "https://mahmoudibrahim98.github.io/icu-auto-diff-site/",
     },
     {
       title: "Generative AI for Synthetic Data Across Multiple Medical Modalities: A Systematic Review of Recent Developments and Challenges",
