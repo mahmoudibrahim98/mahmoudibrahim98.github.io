@@ -366,6 +366,14 @@ export default function App() {
 
         {/* Publications */}
         <Section title="Publications" id="publications">
+          <a
+            href={cvData.scholar}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mb-8 text-xs font-black uppercase tracking-[0.2em] text-emerald-600 hover:text-slate-900 transition-colors"
+          >
+            View all on Google Scholar <ExternalLink size={14} />
+          </a>
           <div className="space-y-8">
             {publicationsWithCitations.map((pub, index) => (
               <motion.div 
@@ -393,14 +401,26 @@ export default function App() {
                 </p>
                 <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-50">
                   <span className="text-sm font-mono text-emerald-600 italic font-medium">{pub.journal}</span>
-                  <a 
-                    href={pub.doi ? `https://doi.org/${pub.doi}` : pub.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-slate-900 hover:text-emerald-600 transition-colors"
-                  >
-                    Access Publication <ExternalLink size={14} />
-                  </a>
+                  <div className="flex items-center gap-6">
+                    {(pub as { site?: string }).site && (
+                      <a
+                        href={(pub as { site?: string }).site}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-slate-900 hover:text-emerald-600 transition-colors"
+                      >
+                        Project Page <ExternalLink size={14} />
+                      </a>
+                    )}
+                    <a
+                      href={pub.doi ? `https://doi.org/${pub.doi}` : pub.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-slate-900 hover:text-emerald-600 transition-colors"
+                    >
+                      Access Publication <ExternalLink size={14} />
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             ))}

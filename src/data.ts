@@ -5,7 +5,7 @@ export const cvData = {
   email: "mahmoud_ibrahim98@outlook.com",
   phone: "+32-495728562",
   linkedin: "https://www.linkedin.com/in/mahmoud-ibrahim-3135bb1a2/",
-  scholar: "https://scholar.google.com/citations?user=YOUR_ID",
+  scholar: "https://scholar.google.com/citations?user=mWbnXgUAAAAJ&hl=en",
   github: "https://github.com/mahmoudibrahim98",
   image: "/photos/profile.jpg",
   about: "I am a PhD student at Maastricht University working on trustworthy medical AI problems, spanning problems of fairness, generative models, and synthetic data. My research focuses on ensuring AI systems in healthcare are reliable, equitable, and privacy-preserving.",
@@ -73,6 +73,21 @@ export const cvData = {
     },
   ],
   publications: [
+    {
+      title: "CompDiff: Hierarchical Compositional Diffusion for Fair and Zero-Shot Intersectional Medical Image Generation",
+      authors: "M. Ibrahim, B. Elen, C. Sun, G. Ertaylan, M. Dumontier",
+      journal: "arXiv preprint (under review)",
+      year: "2026",
+      link: "https://arxiv.org/abs/2603.16551",
+      site: "https://mahmoudibrahim98.github.io/compdiff-site/",
+    },
+    {
+      title: "Enabling Granular Subgroup Level Model Evaluations by Generating Synthetic Medical Time Series",
+      authors: "M. Ibrahim, B. Elen, C. Sun, G. Ertaylan, M. Dumontier",
+      journal: "ECML PKDD SynDAiTE Workshop 2025",
+      year: "2025",
+      link: "https://arxiv.org/abs/2510.19728",
+    },
     {
       title: "Generative AI for Synthetic Data Across Multiple Medical Modalities: A Systematic Review of Recent Developments and Challenges",
       authors: "M. Ibrahim et al.",
