@@ -140,7 +140,7 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'education', 'experience', 'publications', 'projects', 'talks', 'blogs'];
+      const sections = ['home', 'publications', 'education', 'experience', 'projects', 'talks', 'blogs'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -172,9 +172,9 @@ export default function App() {
           
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
+            <NavItem label="Publications" href="#publications" active={activeSection === 'publications'} onClick={() => {}} />
             <NavItem label="Education" href="#education" active={activeSection === 'education'} onClick={() => {}} />
             <NavItem label="Experience" href="#experience" active={activeSection === 'experience'} onClick={() => {}} />
-            <NavItem label="Publications" href="#publications" active={activeSection === 'publications'} onClick={() => {}} />
             <NavItem label="Projects" href="#projects" active={activeSection === 'projects'} onClick={() => {}} />
             <NavItem label="Events" href="#events" active={activeSection === 'events'} onClick={() => {}} />
             <NavItem label="Blogs" href="#blogs" active={activeSection === 'blogs'} onClick={() => {}} />
@@ -199,9 +199,9 @@ export default function App() {
             className="fixed inset-0 z-40 bg-white pt-20 px-6 md:hidden"
           >
             <div className="flex flex-col space-y-6 text-2xl font-serif italic">
+              <a href="#publications" onClick={() => setIsMenuOpen(false)}>Publications</a>
               <a href="#education" onClick={() => setIsMenuOpen(false)}>Education</a>
               <a href="#experience" onClick={() => setIsMenuOpen(false)}>Experience</a>
-              <a href="#publications" onClick={() => setIsMenuOpen(false)}>Publications</a>
               <a href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
               <a href="#events" onClick={() => setIsMenuOpen(false)}>Events</a>
               <a href="#blogs" onClick={() => setIsMenuOpen(false)}>Blogs</a>
@@ -291,6 +291,69 @@ export default function App() {
           </motion.div>
         </section>
 
+        {/* Publications */}
+        <Section title="Publications" id="publications">
+          <a
+            href={cvData.scholar}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mb-8 text-xs font-black uppercase tracking-[0.2em] text-emerald-600 hover:text-slate-900 transition-colors"
+          >
+            View all on Google Scholar <ExternalLink size={14} />
+          </a>
+          <div className="space-y-8">
+            {publicationsWithCitations.map((pub, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="card-academic group"
+              >
+                <div className="flex justify-between items-start gap-6 mb-6">
+                  <h3 className="text-2xl font-bold leading-tight text-slate-900 group-hover:text-emerald-700 transition-colors">
+                    {pub.title}
+                  </h3>
+                  <div className="flex items-center gap-2">
+                    {typeof pub.citations === 'number' && (
+                      <span className="text-xs font-medium text-slate-500 bg-slate-100 px-2 py-1 rounded-full" title="Google Scholar citations">
+                        Cited by {pub.citations}
+                      </span>
+                    )}
+                    <div className="text-slate-400 font-mono text-sm bg-slate-50 px-3 py-1 rounded-full">{pub.year}</div>
+                  </div>
+                </div>
+                <p className="text-slate-500 text-lg mb-6 font-light">
+                  <HighlightAuthor authors={pub.authors} />
+                </p>
+                <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-50">
+                  <span className="text-sm font-mono text-emerald-600 italic font-medium">{pub.journal}</span>
+                  <div className="flex items-center gap-6">
+                    {(pub as { site?: string }).site && (
+                      <a
+                        href={(pub as { site?: string }).site}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-slate-900 hover:text-emerald-600 transition-colors"
+                      >
+                        Project Page <ExternalLink size={14} />
+                      </a>
+                    )}
+                    <a
+                      href={pub.doi ? `https://doi.org/${pub.doi}` : pub.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-slate-900 hover:text-emerald-600 transition-colors"
+                    >
+                      Access Publication <ExternalLink size={14} />
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </Section>
+
         {/* Education */}
         <Section title="Education" id="education">
           <div className="space-y-12">
@@ -360,69 +423,6 @@ export default function App() {
                         {skill}
                       </span>
                     ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </Section>
-
-        {/* Publications */}
-        <Section title="Publications" id="publications">
-          <a
-            href={cvData.scholar}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mb-8 text-xs font-black uppercase tracking-[0.2em] text-emerald-600 hover:text-slate-900 transition-colors"
-          >
-            View all on Google Scholar <ExternalLink size={14} />
-          </a>
-          <div className="space-y-8">
-            {publicationsWithCitations.map((pub, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="card-academic group"
-              >
-                <div className="flex justify-between items-start gap-6 mb-6">
-                  <h3 className="text-2xl font-bold leading-tight text-slate-900 group-hover:text-emerald-700 transition-colors">
-                    {pub.title}
-                  </h3>
-                  <div className="flex items-center gap-2">
-                    {typeof pub.citations === 'number' && (
-                      <span className="text-xs font-medium text-slate-500 bg-slate-100 px-2 py-1 rounded-full" title="Google Scholar citations">
-                        Cited by {pub.citations}
-                      </span>
-                    )}
-                    <div className="text-slate-400 font-mono text-sm bg-slate-50 px-3 py-1 rounded-full">{pub.year}</div>
-                  </div>
-                </div>
-                <p className="text-slate-500 text-lg mb-6 font-light">
-                  <HighlightAuthor authors={pub.authors} />
-                </p>
-                <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-50">
-                  <span className="text-sm font-mono text-emerald-600 italic font-medium">{pub.journal}</span>
-                  <div className="flex items-center gap-6">
-                    {(pub as { site?: string }).site && (
-                      <a
-                        href={(pub as { site?: string }).site}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-slate-900 hover:text-emerald-600 transition-colors"
-                      >
-                        Project Page <ExternalLink size={14} />
-                      </a>
-                    )}
-                    <a
-                      href={pub.doi ? `https://doi.org/${pub.doi}` : pub.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-slate-900 hover:text-emerald-600 transition-colors"
-                    >
-                      Access Publication <ExternalLink size={14} />
-                    </a>
                   </div>
                 </div>
               </motion.div>
