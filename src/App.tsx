@@ -71,48 +71,6 @@ const HighlightAuthor = ({ authors }: { authors: string }) => {
   );
 };
 
-const Typewriter = ({ words }: { words: string[] }) => {
-  const [index, setIndex] = useState(0);
-  const [subIndex, setSubIndex] = useState(0);
-  const [reverse, setReverse] = useState(false);
-  const [blink, setBlink] = useState(true);
-
-  // Typewriter effect
-  useEffect(() => {
-    if (subIndex === words[index].length + 1 && !reverse) {
-      setTimeout(() => setReverse(true), 2000);
-      return;
-    }
-
-    if (subIndex === 0 && reverse) {
-      setReverse(false);
-      setIndex((prev) => (prev + 1) % words.length);
-      return;
-    }
-
-    const timeout = setTimeout(() => {
-      setSubIndex((prev) => prev + (reverse ? -1 : 1));
-    }, reverse ? 75 : 150);
-
-    return () => clearTimeout(timeout);
-  }, [subIndex, index, reverse, words]);
-
-  // Blinking cursor
-  useEffect(() => {
-    const timeout2 = setTimeout(() => {
-      setBlink((prev) => !prev);
-    }, 500);
-    return () => clearTimeout(timeout2);
-  }, [blink]);
-
-  return (
-    <span className="font-medium text-zinc-900">
-      {`${words[index].substring(0, subIndex)}`}
-      <span className={`${blink ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100 ml-1 border-l-2 border-zinc-900 h-6 inline-block align-middle`}></span>
-    </span>
-  );
-};
-
 const NavItem = ({ label, href, active, onClick }: { label: string; href: string; active: boolean; onClick: () => void }) => (
   <a 
     href={href}
@@ -222,16 +180,12 @@ export default function App() {
               <h1 className="text-7xl md:text-9xl font-serif mb-8 tracking-tighter text-slate-900">
                 {cvData.name}
               </h1>
-              <div className="text-2xl md:text-3xl text-slate-500 max-w-2xl font-light leading-relaxed mb-10 h-32 md:h-auto">
-                I <Typewriter words={[
-                  "am a PhD Student",
-                  "am passionate about Trustworthy Medical AI",
-                  "explore the frontiers of Generative AI",
-                  "generate Synthetic Data for Diverse Medical Modalities",
-                  "advocate for Fairness in Healthcare AI",
-                  "bridge Privacy and Utility in Medical Data"
-                ]} /> <br className="hidden md:block" />
-                at <span className="text-slate-900 font-semibold">Maastricht University</span> & <span className="text-slate-900 font-semibold">VITO</span>.
+              <div className="text-2xl md:text-3xl text-slate-500 max-w-2xl font-light leading-relaxed mb-10">
+                I'm a <span className="text-slate-900 font-semibold">PhD Student</span> at{' '}
+                <span className="text-slate-900 font-semibold">Maastricht University</span> &{' '}
+                <span className="text-slate-900 font-semibold">VITO</span>, working on{' '}
+                <span className="text-slate-900 font-semibold">Trustworthy Medical AI</span> —
+                generative models, synthetic data, and fairness for healthcare.
               </div>
               
               <div className="flex flex-wrap gap-4 mb-12">
