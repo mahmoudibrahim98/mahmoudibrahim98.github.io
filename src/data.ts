@@ -124,6 +124,12 @@ export const cvData = {
   },
   projects: [
     {
+      name: "AI Concepts for Medicine — Interactive Explainers",
+      description: "An ongoing series of interactive demos explaining foundational AI concepts to clinicians and medical researchers. The first walkthrough covers linear regression with medical examples.",
+      link: "https://mahmoudibrahim98.github.io/linreg-medical-explain/#/",
+      cta: "Launch Demo",
+    },
+    {
       name: "Trustworthy Medical AI Benchmark",
       description: "A framework for evaluating fairness and robustness in medical imaging models.",
       link: "#",

@@ -402,8 +402,13 @@ export default function App() {
                   <h3 className="text-3xl font-serif italic mb-4">{project.name}</h3>
                   <p className="text-slate-400 text-lg font-light leading-relaxed">{project.description}</p>
                 </div>
-                <a href={project.link} className="mt-10 flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-emerald-400 hover:text-white transition-colors">
-                  Source Code <ChevronRight size={16} />
+                <a
+                  href={project.link}
+                  target={project.link?.startsWith('http') ? '_blank' : undefined}
+                  rel={project.link?.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="mt-10 flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-emerald-400 hover:text-white transition-colors"
+                >
+                  {(project as { cta?: string }).cta ?? 'Source Code'} <ChevronRight size={16} />
                 </a>
               </motion.div>
             ))}
