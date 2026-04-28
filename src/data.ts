@@ -122,7 +122,7 @@ export const cvData = {
     languages: ["Arabic (Native)", "English (Professional)", "French (Basic)"],
     technical: ["Python", "R", "PyTorch", "TensorFlow", "Scikit-learn", "Pandas", "NumPy", "SQL", "Hadoop", "AWS", "Azure"],
   },
-  outreach: [
+  blogsDemos: [
     {
       name: "AI Concepts for Medicine — Interactive Explainers",
       description: "An ongoing series of interactive demos explaining foundational AI concepts to clinicians and medical researchers. The first walkthrough covers linear regression with medical examples.",

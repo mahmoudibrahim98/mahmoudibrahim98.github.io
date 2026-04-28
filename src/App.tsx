@@ -145,7 +145,7 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'publications', 'education', 'experience', 'outreach', 'events'];
+      const sections = ['home', 'publications', 'education', 'experience', 'blogs-demos', 'events'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -180,7 +180,7 @@ export default function App() {
             <NavItem label="Publications" href="#publications" active={activeSection === 'publications'} onClick={() => {}} />
             <NavItem label="Education" href="#education" active={activeSection === 'education'} onClick={() => {}} />
             <NavItem label="Experience" href="#experience" active={activeSection === 'experience'} onClick={() => {}} />
-            <NavItem label="Outreach" href="#outreach" active={activeSection === 'outreach'} onClick={() => {}} />
+            <NavItem label="Blogs & Demos" href="#blogs-demos" active={activeSection === 'blogs-demos'} onClick={() => {}} />
             <NavItem label="Events" href="#events" active={activeSection === 'events'} onClick={() => {}} />
           </div>
 
@@ -206,7 +206,7 @@ export default function App() {
               <a href="#publications" onClick={() => setIsMenuOpen(false)}>Publications</a>
               <a href="#education" onClick={() => setIsMenuOpen(false)}>Education</a>
               <a href="#experience" onClick={() => setIsMenuOpen(false)}>Experience</a>
-              <a href="#outreach" onClick={() => setIsMenuOpen(false)}>Outreach</a>
+              <a href="#blogs-demos" onClick={() => setIsMenuOpen(false)}>Blogs & Demos</a>
               <a href="#events" onClick={() => setIsMenuOpen(false)}>Events</a>
             </div>
           </motion.div>
@@ -429,10 +429,10 @@ export default function App() {
           </div>
         </Section>
 
-        {/* Outreach */}
-        <Section title="Outreach" id="outreach">
+        {/* Blogs & Demos */}
+        <Section title="Blogs & Demos" id="blogs-demos">
           <div className="grid md:grid-cols-2 gap-8">
-            {cvData.outreach.map((project, index) => (
+            {cvData.blogsDemos.map((project, index) => (
               <motion.div 
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
