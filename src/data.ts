@@ -134,7 +134,7 @@ export const cvData = {
     {
       title: "AI & the Future of Work",
       event: "Panelist at MAIN x Omnium Panel Discussion",
-      location: "",
+      location: "Maastricht, Netherlands",
       date: "April 2026",
       images: ["/photos/main-panel-1.jpg", "/photos/main-panel-2.jpg"],
     },
