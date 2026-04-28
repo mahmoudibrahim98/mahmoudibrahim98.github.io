@@ -71,6 +71,52 @@ const HighlightAuthor = ({ authors }: { authors: string }) => {
   );
 };
 
+const Lightbox = ({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) => {
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', handler);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', handler);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [onClose]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      onClick={onClose}
+      className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 cursor-zoom-out"
+      role="dialog"
+      aria-modal="true"
+      aria-label={alt}
+    >
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Close image"
+        className="absolute top-4 right-4 text-white/70 hover:text-white p-2 transition-colors"
+      >
+        <X size={28} />
+      </button>
+      <motion.img
+        initial={{ scale: 0.95 }}
+        animate={{ scale: 1 }}
+        exit={{ scale: 0.95 }}
+        transition={{ duration: 0.2 }}
+        src={src}
+        alt={alt}
+        onClick={(e) => e.stopPropagation()}
+        className="max-h-[90vh] max-w-[95vw] object-contain rounded-2xl shadow-2xl cursor-default"
+      />
+    </motion.div>
+  );
+};
+
 const NavItem = ({ label, href, active, onClick }: { label: string; href: string; active: boolean; onClick: () => void }) => (
   <a 
     href={href}
@@ -84,6 +130,7 @@ const NavItem = ({ label, href, active, onClick }: { label: string; href: string
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   const publicationsWithCitations = useMemo(
     () =>
@@ -444,9 +491,15 @@ export default function App() {
                       return (
                         <div className={`ml-16 grid gap-3 ${imgs.length > 1 ? 'grid-cols-2' : 'grid-cols-1'}`}>
                           {imgs.map((src, i) => (
-                            <div key={i} className="aspect-video rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+                            <button
+                              key={i}
+                              type="button"
+                              onClick={() => setLightbox({ src, alt: talk.title })}
+                              className="aspect-video rounded-2xl overflow-hidden border border-slate-100 shadow-sm cursor-zoom-in block w-full p-0 bg-transparent"
+                              aria-label={`Open image: ${talk.title}`}
+                            >
                               <img src={src} alt={talk.title} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" referrerPolicy="no-referrer" />
-                            </div>
+                            </button>
                           ))}
                         </div>
                       );
@@ -508,9 +561,14 @@ export default function App() {
                       </div>
                     </div>
                     {conf.image && (
-                      <div className="ml-16 aspect-video rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+                      <button
+                        type="button"
+                        onClick={() => setLightbox({ src: conf.image!, alt: conf.name })}
+                        className="ml-16 aspect-video rounded-2xl overflow-hidden border border-slate-100 shadow-sm cursor-zoom-in block w-full p-0 bg-transparent"
+                        aria-label={`Open image: ${conf.name}`}
+                      >
                         <img src={conf.image} alt={conf.name} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" referrerPolicy="no-referrer" />
-                      </div>
+                      </button>
                     )}
                   </motion.div>
                 ))}
@@ -527,6 +585,12 @@ export default function App() {
           &copy; {new Date().getFullYear()} {cvData.name}. Crafted with precision using React & Tailwind.
         </p>
       </footer>
+
+      <AnimatePresence>
+        {lightbox && (
+          <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={() => setLightbox(null)} />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
