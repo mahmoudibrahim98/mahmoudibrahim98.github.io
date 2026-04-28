@@ -25,7 +25,7 @@ export const cvData = {
     {
       date: "Mar 2026",
       type: "Preprint",
-      text: "New preprint released — CompDiff: Hierarchical Compositional Diffusion for Fair and Zero-Shot Intersectional Medical Image Generation (under review).",
+      text: "New preprint released. CompDiff: Hierarchical Compositional Diffusion for Fair and Zero-Shot Intersectional Medical Image Generation (under review).",
       link: "#publications",
     },
     {
@@ -37,7 +37,7 @@ export const cvData = {
     {
       date: "Oct 2025",
       type: "Paper",
-      text: "Paper accepted at the ECML PKDD SynDAiTE Workshop 2025 — Enabling Granular Subgroup Level Model Evaluations by Generating Synthetic Medical Time Series.",
+      text: "Paper accepted at the ECML PKDD SynDAiTE Workshop 2025: Enabling Granular Subgroup Level Model Evaluations by Generating Synthetic Medical Time Series.",
       link: "#publications",
     },
     {
@@ -168,7 +168,7 @@ export const cvData = {
   },
   blogsDemos: [
     {
-      name: "AI Concepts for Medicine — Interactive Explainers",
+      name: "AI Concepts for Medicine: Interactive Explainers",
       description: "An ongoing series of interactive demos explaining foundational AI concepts to clinicians and medical researchers. The first walkthrough covers linear regression with medical examples.",
       link: "https://mahmoudibrahim98.github.io/linreg-medical-explain/#/",
       cta: "Explore",

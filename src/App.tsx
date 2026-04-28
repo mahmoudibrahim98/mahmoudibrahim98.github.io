@@ -229,7 +229,7 @@ export default function App() {
                 I'm a <span className="text-slate-900 font-semibold">PhD Student</span> at{' '}
                 <span className="text-slate-900 font-semibold">Maastricht University</span> &{' '}
                 <span className="text-slate-900 font-semibold">VITO</span>, working on{' '}
-                <span className="text-slate-900 font-semibold">Trustworthy Medical AI</span> —
+                <span className="text-slate-900 font-semibold">Trustworthy Medical AI</span>:
                 generative models, synthetic data, and fairness for healthcare.
               </div>
               

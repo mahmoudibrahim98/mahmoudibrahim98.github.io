@@ -1,4 +1,4 @@
-# Personal site — Mahmoud Ibrahim
+# Personal site: Mahmoud Ibrahim
 
 Source for [mahmoudibrahim98.github.io](https://mahmoudibrahim98.github.io).
 
