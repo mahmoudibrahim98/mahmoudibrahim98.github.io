@@ -494,6 +494,11 @@ export default function App() {
                       <div>
                         <h4 className="text-xl font-bold text-slate-900 mb-1">{conf.name}</h4>
                         <p className="text-slate-500 font-light mb-1">{conf.location} • <span className="font-mono text-xs">{conf.date}</span></p>
+                        {(conf as { award?: string }).award && (
+                          <span className="inline-flex items-center gap-1 mt-1 mb-1 text-xs font-black uppercase tracking-[0.2em] text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+                            🏆 {(conf as { award?: string }).award}
+                          </span>
+                        )}
                         <p className="text-slate-400 text-sm italic">{conf.details}</p>
                         {conf.link && (
                           <a href={conf.link} target="_blank" rel="noopener noreferrer" className="text-xs font-black uppercase tracking-[0.2em] text-emerald-600 hover:text-slate-900 transition-colors flex items-center gap-1 mt-2">

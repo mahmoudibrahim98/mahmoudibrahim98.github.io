@@ -148,6 +148,14 @@ export const cvData = {
   ],
   conferences: [
     {
+      name: "DACS PhD Day 2026",
+      location: "Maastricht University, The Netherlands",
+      date: "2026",
+      award: "Best Poster Award",
+      details: "Poster presented",
+      image: "/photos/dacs.png",
+    },
+    {
       name: "MENAML 2026",
       location: "KAUST, Saudi Arabia",
       date: "2026",
