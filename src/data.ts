@@ -122,22 +122,12 @@ export const cvData = {
     languages: ["Arabic (Native)", "English (Professional)", "French (Basic)"],
     technical: ["Python", "R", "PyTorch", "TensorFlow", "Scikit-learn", "Pandas", "NumPy", "SQL", "Hadoop", "AWS", "Azure"],
   },
-  projects: [
+  outreach: [
     {
       name: "AI Concepts for Medicine — Interactive Explainers",
       description: "An ongoing series of interactive demos explaining foundational AI concepts to clinicians and medical researchers. The first walkthrough covers linear regression with medical examples.",
       link: "https://mahmoudibrahim98.github.io/linreg-medical-explain/#/",
-      cta: "Launch Demo",
-    },
-    {
-      name: "Trustworthy Medical AI Benchmark",
-      description: "A framework for evaluating fairness and robustness in medical imaging models.",
-      link: "#",
-    },
-    {
-      name: "Synthetic EHR Generator",
-      description: "Generating privacy-preserving synthetic electronic health records using diffusion models.",
-      link: "#",
+      cta: "Explore",
     },
   ],
   talks: [
@@ -185,12 +175,5 @@ export const cvData = {
       date: "May 2023",
       link: "https://www.lifesciencesatwork.nl/events/2023/05/life-sciences-industry",
     }
-  ],
-  blogs: [
-    {
-      title: "The Rise of Synthetic Data in Healthcare",
-      date: "Jan 2024",
-      link: "#",
-    },
   ],
 };

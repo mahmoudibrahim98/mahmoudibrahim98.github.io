@@ -98,7 +98,7 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'publications', 'education', 'experience', 'projects', 'talks', 'blogs'];
+      const sections = ['home', 'publications', 'education', 'experience', 'outreach', 'events'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -133,9 +133,8 @@ export default function App() {
             <NavItem label="Publications" href="#publications" active={activeSection === 'publications'} onClick={() => {}} />
             <NavItem label="Education" href="#education" active={activeSection === 'education'} onClick={() => {}} />
             <NavItem label="Experience" href="#experience" active={activeSection === 'experience'} onClick={() => {}} />
-            <NavItem label="Projects" href="#projects" active={activeSection === 'projects'} onClick={() => {}} />
+            <NavItem label="Outreach" href="#outreach" active={activeSection === 'outreach'} onClick={() => {}} />
             <NavItem label="Events" href="#events" active={activeSection === 'events'} onClick={() => {}} />
-            <NavItem label="Blogs" href="#blogs" active={activeSection === 'blogs'} onClick={() => {}} />
           </div>
 
           <button 
@@ -160,9 +159,8 @@ export default function App() {
               <a href="#publications" onClick={() => setIsMenuOpen(false)}>Publications</a>
               <a href="#education" onClick={() => setIsMenuOpen(false)}>Education</a>
               <a href="#experience" onClick={() => setIsMenuOpen(false)}>Experience</a>
-              <a href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
+              <a href="#outreach" onClick={() => setIsMenuOpen(false)}>Outreach</a>
               <a href="#events" onClick={() => setIsMenuOpen(false)}>Events</a>
-              <a href="#blogs" onClick={() => setIsMenuOpen(false)}>Blogs</a>
             </div>
           </motion.div>
         )}
@@ -384,10 +382,10 @@ export default function App() {
           </div>
         </Section>
 
-        {/* Projects */}
-        <Section title="Projects" id="projects">
+        {/* Outreach */}
+        <Section title="Outreach" id="outreach">
           <div className="grid md:grid-cols-2 gap-8">
-            {cvData.projects.map((project, index) => (
+            {cvData.outreach.map((project, index) => (
               <motion.div 
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -508,23 +506,6 @@ export default function App() {
           </div>
         </Section>
 
-        {/* Blogs */}
-        <Section title="Blogs" id="blogs">
-          <div className="grid md:grid-cols-2 gap-8">
-            {cvData.blogs.map((blog, index) => (
-              <div key={index} className="flex gap-6 items-start group p-6 bg-white border border-slate-100 rounded-3xl shadow-sm hover:border-emerald-200 transition-colors">
-                <div className="p-4 bg-slate-50 rounded-2xl group-hover:bg-emerald-50 transition-colors">
-                  <BookOpen size={24} className="text-emerald-600" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-slate-900 mb-1">{blog.title}</h4>
-                  <p className="text-slate-500 font-light mb-3 font-mono text-xs">{blog.date}</p>
-                  <a href={blog.link} className="text-xs font-black uppercase tracking-[0.2em] text-emerald-600 hover:text-slate-900 transition-colors inline-block">Read Article</a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Section>
       </main>
 
       {/* Footer */}
