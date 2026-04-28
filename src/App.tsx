@@ -438,11 +438,19 @@ export default function App() {
                         </p>
                       </div>
                     </div>
-                    {talk.image && (
-                      <div className="ml-16 aspect-video rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
-                        <img src={talk.image} alt={talk.title} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" referrerPolicy="no-referrer" />
-                      </div>
-                    )}
+                    {(() => {
+                      const imgs = (talk as { images?: string[] }).images ?? (talk.image ? [talk.image] : []);
+                      if (imgs.length === 0) return null;
+                      return (
+                        <div className={`ml-16 grid gap-3 ${imgs.length > 1 ? 'grid-cols-2' : 'grid-cols-1'}`}>
+                          {imgs.map((src, i) => (
+                            <div key={i} className="aspect-video rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+                              <img src={src} alt={talk.title} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" referrerPolicy="no-referrer" />
+                            </div>
+                          ))}
+                        </div>
+                      );
+                    })()}
                   </motion.div>
                 ))}
               </div>

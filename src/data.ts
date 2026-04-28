@@ -132,6 +132,13 @@ export const cvData = {
   ],
   talks: [
     {
+      title: "AI & the Future of Work",
+      event: "Panelist at MAIN x Omnium Panel Discussion",
+      location: "",
+      date: "April 2026",
+      images: ["/photos/main-panel-1.jpg", "/photos/main-panel-2.jpg"],
+    },
+    {
       title: "Generative AI for Synthetic data across multiple medical modalities",
       event: "Keynote at ISC High Performance 2025",
       location: "Hamburg, Germany",
