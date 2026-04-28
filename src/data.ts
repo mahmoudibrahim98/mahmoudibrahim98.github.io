@@ -9,6 +9,50 @@ export const cvData = {
   github: "https://github.com/mahmoudibrahim98",
   image: "/photos/profile.jpg",
   about: "I am a PhD student at Maastricht University working on trustworthy medical AI problems, spanning problems of fairness, generative models, and synthetic data. My research focuses on ensuring AI systems in healthcare are reliable, equitable, and privacy-preserving.",
+  news: [
+    {
+      date: "Apr 2026",
+      type: "Award",
+      text: "Won Best Poster Award at DACS PhD Day 2026 at Maastricht University.",
+      link: "#events",
+    },
+    {
+      date: "Apr 2026",
+      type: "Talk",
+      text: "Served as panelist at the MAIN x Omnium Panel Discussion on AI & the Future of Work in Maastricht.",
+      link: "#events",
+    },
+    {
+      date: "Mar 2026",
+      type: "Preprint",
+      text: "New preprint released — CompDiff: Hierarchical Compositional Diffusion for Fair and Zero-Shot Intersectional Medical Image Generation (under review).",
+      link: "#publications",
+    },
+    {
+      date: "2026",
+      type: "Conference",
+      text: "Attended MENAML 2026 at KAUST, Saudi Arabia.",
+      link: "#events",
+    },
+    {
+      date: "Oct 2025",
+      type: "Paper",
+      text: "Paper accepted at the ECML PKDD SynDAiTE Workshop 2025 — Enabling Granular Subgroup Level Model Evaluations by Generating Synthetic Medical Time Series.",
+      link: "#publications",
+    },
+    {
+      date: "2025",
+      type: "Talk",
+      text: "Delivered keynote at ISC High Performance 2025 in Hamburg, Germany.",
+      link: "#events",
+    },
+    {
+      date: "2025",
+      type: "Paper",
+      text: "Published a systematic review on Generative AI for Synthetic Data Across Multiple Medical Modalities in Computers in Biology and Medicine.",
+      link: "#publications",
+    },
+  ],
   education: [
     {
       degree: "PhD in Artificial Intelligence",

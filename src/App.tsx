@@ -290,6 +290,44 @@ export default function App() {
           </motion.div>
         </section>
 
+        {/* News */}
+        <Section title="News" id="news">
+          <div className="relative">
+            <div className="max-h-[28rem] overflow-y-auto pr-3 space-y-3 [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-slate-200 [&::-webkit-scrollbar-thumb]:rounded-full">
+              {cvData.news.map((item, index) => {
+                const typeStyles: Record<string, string> = {
+                  Award: 'bg-amber-50 text-amber-700 border-amber-200',
+                  Talk: 'bg-blue-50 text-blue-700 border-blue-200',
+                  Paper: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+                  Preprint: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+                  Conference: 'bg-purple-50 text-purple-700 border-purple-200',
+                };
+                const typeClass = typeStyles[item.type] ?? 'bg-slate-50 text-slate-600 border-slate-200';
+                const Inner = (
+                  <div className="flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-100 hover:border-emerald-200 hover:bg-emerald-50/30 transition-all">
+                    <span className="text-xs font-mono text-slate-500 bg-slate-50 px-3 py-1 rounded-full whitespace-nowrap shrink-0 mt-0.5">
+                      {item.date}
+                    </span>
+                    <span className={`text-[10px] font-black uppercase tracking-[0.15em] px-2.5 py-1 rounded-full whitespace-nowrap shrink-0 border mt-0.5 ${typeClass}`}>
+                      {item.type}
+                    </span>
+                    <p className="text-slate-700 font-light text-sm leading-relaxed flex-1">
+                      {item.text}
+                    </p>
+                  </div>
+                );
+                return item.link ? (
+                  <a key={index} href={item.link} className="block group">{Inner}</a>
+                ) : (
+                  <div key={index}>{Inner}</div>
+                );
+              })}
+            </div>
+            {/* Bottom fade-out hint that more is below */}
+            <div className="pointer-events-none absolute bottom-0 left-0 right-3 h-8 bg-gradient-to-t from-white to-transparent rounded-b-2xl" />
+          </div>
+        </Section>
+
         {/* Publications */}
         <Section title="Publications" id="publications">
           <a
