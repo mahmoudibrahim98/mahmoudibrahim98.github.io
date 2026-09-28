@@ -639,13 +639,16 @@ export default function App() {
                 };
                 const typeClass = typeStyles[item.type] ?? 'bg-slate-50 text-slate-600 border-slate-200';
                 const Inner = (
-                  <div className="flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-100 hover:border-emerald-200 hover:bg-emerald-50/30 transition-all">
-                    <span className="text-xs font-mono text-slate-500 bg-slate-50 px-3 py-1 rounded-full whitespace-nowrap shrink-0 mt-0.5">
-                      {item.date}
-                    </span>
-                    <span className={`text-[10px] font-black uppercase tracking-[0.15em] px-2.5 py-1 rounded-full whitespace-nowrap shrink-0 border mt-0.5 ${typeClass}`}>
-                      {item.type}
-                    </span>
+                  <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 p-4 rounded-2xl bg-white border border-slate-100 hover:border-emerald-200 hover:bg-emerald-50/30 transition-all">
+                    {/* Fixed-width pills so the dates, tags and text line up across rows */}
+                    <div className="flex items-center gap-3 sm:gap-4 shrink-0 sm:mt-0.5">
+                      <span className="w-24 text-center text-xs font-mono text-slate-500 bg-slate-50 py-1 rounded-full whitespace-nowrap">
+                        {item.date}
+                      </span>
+                      <span className={`w-28 text-center text-[10px] font-black uppercase tracking-[0.15em] py-1 rounded-full whitespace-nowrap border ${typeClass}`}>
+                        {item.type}
+                      </span>
+                    </div>
                     <p className="text-slate-700 font-light text-sm leading-relaxed flex-1">
                       {item.text}
                     </p>
