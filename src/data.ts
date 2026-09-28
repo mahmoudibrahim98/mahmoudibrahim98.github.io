@@ -27,6 +27,12 @@ export const cvData = {
   news: [
     {
       date: "Sep 2026",
+      type: "Preprint",
+      text: "Substantially revised CompDiff preprint on arXiv (v4): zero-shot generation for 16 chest X-ray intersections never seen in training, and a blinded reader study in which two radiologists rated its images the most realistic.",
+      link: "#publications",
+    },
+    {
+      date: "Sep 2026",
       type: "Build",
       text: "Built a platform to plan, dispatch and supervise a fleet of AI agents: a GitHub-synced task board, a manager agent, and work that carries on across subscriptions.",
       link: "#project/research-orchestrator",
@@ -58,7 +64,7 @@ export const cvData = {
     {
       date: "Mar 2026",
       type: "Preprint",
-      text: "New preprint released. CompDiff: Hierarchical Compositional Diffusion for Fair and Zero-Shot Intersectional Medical Image Generation (under review).",
+      text: "New preprint released: CompDiff, compositional diffusion for fair medical image generation across demographic intersections.",
       link: "#publications",
     },
     {
@@ -163,8 +169,8 @@ export const cvData = {
   ],
   publications: [
     {
-      title: "CompDiff: Hierarchical Compositional Diffusion for Fair and Zero-Shot Intersectional Medical Image Generation",
-      authors: "M. Ibrahim, B. Elen, C. Sun, G. Ertaylan, M. Dumontier",
+      title: "CompDiff enables fair and zero-shot medical image generation across demographic intersections through compositional diffusion",
+      authors: "M. Ibrahim, B. Elen, C. Sun, A. Jiblawi, M. M. Saleh, Maryam K. Ibrahim, G. Ertaylan, M. Dumontier",
       journal: "arXiv preprint (under review)",
       year: "2026",
       link: "https://arxiv.org/abs/2603.16551",

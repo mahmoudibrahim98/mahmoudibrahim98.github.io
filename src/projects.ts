@@ -66,7 +66,6 @@ export const projects: Project[] = [
       'Tasks: a Jira-style board synced both ways with GitHub issues',
       'A task synced from its GitHub issue: the spec, and one click to dispatch it, hand it to a running agent or close it',
       'Dispatching a task: pick the engine, the subscription, the model and the effort',
-      'Portfolio board: the manager agent summarises where every research line stands',
       'Waiting on you: every decision and blocker the agents escalated, answerable in place',
       'Answering an agent\'s terminal prompt from the portal',
       'Starting an agent on a project card, on Claude or Codex',
@@ -216,13 +215,15 @@ export const projects: Project[] = [
     summary:
       'Code and model weights for my CompDiff paper: a diffusion model that generates chest X-rays and fundus images for any combination of demographic attributes, including combinations it never saw in training.',
     what: [
-      'A hierarchical compositional diffusion model for fair medical image generation. It learns each demographic attribute (age, sex, race) separately, composes them into one demographic token, and conditions a fine-tuned Stable Diffusion on it, so it can generate realistic chest X-rays and fundus images for rare or completely unseen combinations.',
+      'A compositional diffusion model for fair medical image generation. It encodes each demographic attribute (age, sex, race) separately, composes them as supervised demographic tokens alongside the clinical text, and conditions a fine-tuned Stable Diffusion on them, so it can generate realistic chest X-rays and fundus images for rare or completely unseen combinations.',
+      'On 16 chest X-ray intersections held out of training entirely, it had the lowest FID of all the generators in every one. In a blinded reader study of those unseen groups, two radiologists gave its images the highest scores for anatomical realism and for matching the clinical impression.',
     ],
     why: [
       'Generative models trained on imbalanced medical data inherit that imbalance: they are worst exactly for the rare patient groups where synthetic data would help most. My PhD is about making generative models fair and trustworthy for the patients they serve, and intersectional groups are where standard models break.',
     ],
     how: [
-      'A hierarchical conditioner network builds the demographic token from per-attribute embeddings, and it is concatenated with the clinical-text embedding as cross-attention context for Stable Diffusion. Evaluated for image quality, subgroup equity and zero-shot generalisation to held-out intersections, and for the utility of the synthetic images downstream: classifiers trained on them gain AUROC with reduced demographic bias. Trained on GPU clusters; the code, the project page and the trained weights for both modalities are public.',
+      'A hierarchical conditioner network builds the demographic tokens from per-attribute embeddings, and they join the clinical-text embedding as cross-attention context for Stable Diffusion. I compared it against prompt conditioning (RoentGen-v2) and loss reweighting (FairDiffusion), each trained with three seeds per modality, for image quality, subgroup fidelity and zero-shot generalisation, and ran a blinded reader study with two radiologists.',
+      'Then the downstream test: pretraining classifiers on CompDiff images improved classification, and synthetic audit cohorts from CompDiff reduced the error in estimating performance on rare intersections. Trained on GPU clusters; the code, the project page and the trained weights for both modalities are public.',
     ],
     stack: ['PyTorch', 'Stable Diffusion', 'Diffusion Models', 'Medical Imaging', 'SLURM'],
     category: 'Research',
