@@ -38,7 +38,7 @@ export const cvData = {
       link: "#project/research-orchestrator",
     },
     {
-      date: "2026",
+      date: "Jul 2026",
       type: "Paper",
       text: "Paper accepted at the ECML PKDD SynDAiTE Workshop 2026: Demographically-Conditioned Synthetic Medical Images for Bias Mitigation and Bias Detection in Disease Classifiers. Model weights on Hugging Face.",
       link: "#publications",
