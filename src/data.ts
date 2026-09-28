@@ -1,15 +1,48 @@
 export const cvData = {
   name: "Mahmoud Ibrahim",
   title: "PhD Researcher in Trustworthy Medical AI",
+  eyebrow: "PhD Researcher · Maastricht University & VITO",
+  cvPdf: "/cv/Mahmoud-Ibrahim-CV.pdf",
+  focus: ["Generative AI", "Agentic systems", "Synthetic data", "Trustworthy & fair AI", "Medical AI", "LLM serving", "AI strategy"],
+  proof: [
+    { value: "7", label: "publications" },
+    { value: "600+", label: "citations" },
+    { value: "Keynote", label: "ISC High Performance 2025" },
+    { value: "Task lead", label: "synthetic data, Horizon Europe REALM" },
+    { value: "Best Poster", label: "DACS PhD Day 2026" },
+  ],
   location: "Maastricht, Netherlands / VITO, Belgium",
   email: "mahmoud_ibrahim98@outlook.com",
   phone: "+32-495728562",
   linkedin: "https://www.linkedin.com/in/mahmoud-ibrahim-3135bb1a2/",
   scholar: "https://scholar.google.com/citations?user=mWbnXgUAAAAJ&hl=en",
   github: "https://github.com/mahmoudibrahim98",
+  huggingface: "https://huggingface.co/mahmoudibra98",
   image: "/photos/profile.jpg",
-  about: "I am a PhD student at Maastricht University working on trustworthy medical AI problems, spanning problems of fairness, generative models, and synthetic data. My research focuses on ensuring AI systems in healthcare are reliable, equitable, and privacy-preserving.",
+  about: [
+    "I'm a PhD researcher in AI at Maastricht University and an AI researcher at VITO. For six years I've built generative models (diffusion models, GANs, VAEs and LLM pipelines) that create synthetic medical data, and I use it on both sides of model development: to train models that perform better and more fairly for under-represented patient groups, and to test where a model fails when real data runs out. I lead the synthetic-data work in REALM, a Horizon Europe project with partners across five countries.",
+    "I also build what I use. My research runs on a platform I built to plan, dispatch and supervise a fleet of AI agents; my colleagues check my GPU-cluster monitor before they queue a job; my football club runs on an app I built. I serve open models with vLLM on GPU clusters, and I help organisations integrate AI into their workflows where it is needed, building the agents and harnesses that match their needs.",
+    "I believe generative AI will change how people and businesses work, and I want to help shape that, especially in the fields where getting it right matters most.",
+  ],
   news: [
+    {
+      date: "Sep 2026",
+      type: "Build",
+      text: "Built a platform to plan, dispatch and supervise a fleet of AI agents: a GitHub-synced task board, a manager agent, and work that carries on across subscriptions.",
+      link: "#project/research-orchestrator",
+    },
+    {
+      date: "2026",
+      type: "Paper",
+      text: "Paper accepted at the ECML PKDD SynDAiTE Workshop 2026: Demographically-Conditioned Synthetic Medical Images for Bias Mitigation and Bias Detection in Disease Classifiers. Model weights on Hugging Face.",
+      link: "#publications",
+    },
+    {
+      date: "Jun 2026",
+      type: "Talk",
+      text: "Trainer at the REALM Academy in Brussels, on synthetic data for advanced model evaluation.",
+      link: "#events",
+    },
     {
       date: "Apr 2026",
       type: "Award",
@@ -58,7 +91,7 @@ export const cvData = {
       degree: "PhD in Artificial Intelligence",
       institution: "Maastricht University, The Netherlands",
       period: "Apr 2023 - Current",
-      description: "Working on trustworthy medical AI problems: fairness for under-represented subgroups, fine-grained performance evaluations, and synthetic data generation. Supervised by Prof. Dr. Michel Dumontier.",
+      description: "Trustworthy generative AI for medicine: fair synthetic data for under-represented and intersectional patient subgroups, fine-grained performance evaluation, and automated performance monitoring of medical AI. Supervised by Prof. Dr. Michel Dumontier.",
       logo: "/photos/maastricht-logo.png",
     },
     {
@@ -85,35 +118,47 @@ export const cvData = {
   ],
   experience: [
     {
+      role: "AI Consultant",
+      company: "Freelance",
+      period: "Jan 2025 - Present",
+      tasks: [
+        "Help organisations integrate AI into their workflows where it is needed: analyse how their teams work today and identify where generative AI and agents add real value.",
+        "Design and build agents and agent harnesses that match each organisation's needs.",
+        "Translate technical trade-offs (reliability, data access, cost, risk) into clear recommendations for non-technical decision-makers.",
+      ],
+      skills: ["AI Integration", "AI Agents", "Agent Harnesses", "LLMs"],
+    },
+    {
       role: "AI Researcher",
       company: "VITO, Belgium",
       period: "Oct 2022 - Present",
       tasks: [
-        "Working on complex health-related problems related to the trustworthiness of medical AI.",
-        "Focusing on synthetic medical data generation using Diffusion Models, GANs, and LLMs.",
-        "Conducted fine-grained model evaluation and validation to ensure accuracy and reliability.",
-        "Collaborated with cross-functional teams to integrate AI-driven solutions into healthcare systems.",
+        "Synthetic-data task leader in REALM, a Horizon Europe project building a framework for regulators, developers and clinicians to evaluate medical AI software; coordinating with partners in Greece, the Netherlands, Belgium, Poland and Croatia.",
+        "Develop generative models (diffusion models, GANs, VAEs, LLM-based pipelines) for structured, time-series and imaging medical data.",
+        "Investigate subgroup performance gaps and bias amplification in models trained or tested on synthetic data.",
+        "Built a SLURM GPU-cluster monitor now being adopted across VITO; among the cluster's most active users.",
+        "Trainer at the REALM Academy (Brussels, 2026) on synthetic data for advanced model evaluation.",
       ],
-      skills: ["Python", "Pandas", "NumPy", "PyTorch", "TensorFlow", "Scikit-learn"],
+      skills: ["Python", "PyTorch", "Diffusion Models", "GANs", "LLMs", "SLURM", "vLLM"],
     },
     {
-      role: "Deep Learning Researcher Intern",
+      role: "Deep Learning Researcher Intern (Master's thesis)",
       company: "VITO, Belgium",
       period: "Oct 2021 - June 2022",
       tasks: [
-        "Developed uncertainty quantification techniques for deep learning prediction models in diabetic retinopathy screening.",
+        "Thesis \"Uncertainty Quantification in DR Screening: A Cost-effective Approach\" (graded 18/20): implemented and compared uncertainty quantification methods, MC Dropout and ensembles, for deep learning models detecting diabetic retinopathy on fundus images.",
       ],
-      skills: ["Python", "PyTorch", "TensorFlow"],
+      skills: ["Python", "TensorFlow", "Keras"],
     },
     {
       role: "Machine Learning Research Assistant",
       company: "United Arab Emirates University (UAEU), UAE",
       period: "Aug 2020 - Sep 2021",
       tasks: [
-        "Synthetic Data generation and evaluation.",
-        "Development of a web application for patient consent in medical research.",
+        "Wrote all the code and ran all the experiments behind three papers on synthetic data generation and evaluation, now cited about 400 times.",
+        "Built a web portal for dynamic participant consent in research studies.",
       ],
-      skills: ["R", "Python", "SQL", "HTML", "CSS", "PHP"],
+      skills: ["Python", "R", "SQL", "PHP", "JavaScript"],
     },
   ],
   publications: [
@@ -124,6 +169,19 @@ export const cvData = {
       year: "2026",
       link: "https://arxiv.org/abs/2603.16551",
       site: "https://mahmoudibrahim98.github.io/compdiff-site/",
+      extra: [
+        { label: "Code", url: "https://github.com/mahmoudibrahim98/CompDiff" },
+        { label: "X-ray weights", url: "https://huggingface.co/mahmoudibra98/compdiff-chest-xray" },
+        { label: "Fundus weights", url: "https://huggingface.co/mahmoudibra98/compdiff-fundus" },
+      ],
+    },
+    {
+      title: "Demographically-Conditioned Synthetic Medical Images for Bias Mitigation and Bias Detection in Disease Classifiers",
+      authors: "M. Ibrahim, B. Elen, C. Sun, G. Ertaylan, M. Dumontier",
+      journal: "ECML PKDD SynDAiTE Workshop 2026",
+      year: "2026",
+      link: "https://arxiv.org/abs/2607.14984",
+      extra: [{ label: "Weights", url: "https://huggingface.co/mahmoudibra98/covid-ct-sd21" }],
     },
     {
       title: "Enabling Granular Subgroup Level Model Evaluations by Generating Synthetic Medical Time Series",
@@ -164,17 +222,15 @@ export const cvData = {
   ],
   skills: {
     languages: ["Arabic (Native)", "English (Professional)", "French (Basic)"],
-    technical: ["Python", "R", "PyTorch", "TensorFlow", "Scikit-learn", "Pandas", "NumPy", "SQL", "Hadoop", "AWS", "Azure"],
+    technical: ["Python", "PyTorch", "TensorFlow", "Hugging Face", "Diffusion Models", "LLMs", "vLLM", "Ollama", "Unsloth", "SLURM", "TypeScript", "React", "PostgreSQL", "SQL", "R", "Claude Code", "Codex"],
   },
-  blogsDemos: [
-    {
-      name: "AI Concepts for Medicine: Interactive Explainers",
-      description: "An ongoing series of interactive demos explaining foundational AI concepts to clinicians and medical researchers. The first walkthrough covers linear regression with medical examples.",
-      link: "https://mahmoudibrahim98.github.io/linreg-medical-explain/#/",
-      cta: "Explore",
-    },
-  ],
   talks: [
+    {
+      title: "Synthetic data for advanced model evaluation",
+      event: "Trainer at the REALM Academy",
+      location: "Brussels, Belgium",
+      date: "June 2026",
+    },
     {
       title: "AI & the Future of Work",
       event: "Panelist at MAIN x Omnium Panel Discussion",
@@ -212,6 +268,12 @@ export const cvData = {
       date: "2025",
       details: "Poster accepted and presented",
       image: "/photos/menaml2025.jpg",
+    },
+    {
+      name: "ECML PKDD 2026",
+      location: "Naples, Italy",
+      date: "2026",
+      details: "Paper accepted at the SynDAiTE workshop",
     },
     {
       name: "ECML PKDD 2025",
